@@ -6,7 +6,7 @@ import Profile from "../../public/assests/DP.png";
 import SongImage from "../../public/assests/image 6.png";
 import Picture from "../../public/assests/image 12.png";
 import Cover from "../../public/assests/c.png"
-
+import { getSession } from 'next-auth/react'
 import {
   MdShuffle,
   MdSkipPrevious,
@@ -557,3 +557,20 @@ const Artist = () => {
 };
 
 export default Artist;
+
+export async function getServerSideProps({ req }){
+  const session = await getSession({ req })
+
+  if(!session){
+      return {
+          redirect : {
+              destination : "/login",
+              premanent: false
+          }
+      }
+  }
+  // authorize user return session
+  return {
+      props: { session }
+  }
+}

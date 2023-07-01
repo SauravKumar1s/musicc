@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { classNames } from "@/helper/classNames";
+import GoogleIcon from "../icon/GoogleIcon";
 export const Button = ({
   className,
   children,
@@ -58,4 +59,18 @@ Button.propTypes = {
     "dark-outline",
     "default",
   ]),
+};
+
+
+
+
+export const GoogleButton = ({ onClick, text }) => {
+  return (
+    <div className="flex items-center justify-center  w-full">
+      <button className="flex items-center justify-center w-full bg-white border border-gray-300 rounded-lg shadow-md px-6 py-4 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        <GoogleIcon />
+        <span className="text-center">Continue with Google</span>
+      </button>
+    </div>
+  );
 };
