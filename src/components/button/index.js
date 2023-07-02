@@ -66,7 +66,7 @@ Button.propTypes = {
 
 export const GoogleButton = ({ onClick, text }) => {
   return (
-    <div className="flex items-center justify-center  w-full">
+    <div className="flex items-center justify-center  w-full" onClick={onClick}>
       <button className="flex items-center justify-center w-full bg-white border border-gray-300 rounded-lg shadow-md px-6 py-4 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
         <GoogleIcon />
         <span className="text-center">Continue with Google</span>
