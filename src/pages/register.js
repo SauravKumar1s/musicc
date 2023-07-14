@@ -57,10 +57,10 @@ export default function Register(){
                 <div className={`${styles.input_group} ${formik.errors.username && formik.touched.username ? 'border-rose-600' : ''}`}>
                     <input 
                     type="text"
-                    name='Username'
+                    name='name'
                     placeholder='Username'
                     className={styles.input_text}
-                    {...formik.getFieldProps('username')}
+                    {...formik.getFieldProps('name')}
                     />
                     <span className='icon flex items-center px-4'>
                         <HiOutlineUser size={25} />

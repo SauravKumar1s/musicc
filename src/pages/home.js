@@ -5,7 +5,7 @@ import SendEmail from '@/components/home/SendEmail'
 import Typography from '@/components/typography'
 import React from 'react'
 
-const home = () => {
+const HomeSection = () => {
   return (
     <>
    <HomeHero/>
@@ -16,4 +16,4 @@ const home = () => {
   )
 }
 
-export default home
+export default HomeSection

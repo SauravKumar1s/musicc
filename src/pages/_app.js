@@ -9,9 +9,9 @@ export default function App({ Component, pageProps }) {
   const showNavAndFooter = !['/login', '/register'].includes(router.asPath);
 
   return (
-    <>
+    <> <SessionProvider>
       {showNavAndFooter && <NavMenu />}
-      <SessionProvider>
+     
         <Component {...pageProps} />
       </SessionProvider>
       {showNavAndFooter && <Footer />}

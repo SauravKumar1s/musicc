@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export const Search = ({ rounded, width, inputClassName }) => {
   return (
-<form className="w-1/2">
+<form className="sm:w-1/2 w-full">
       <div className="relative">
         <input
           type="search"
@@ -15,7 +15,7 @@ export const Search = ({ rounded, width, inputClassName }) => {
           type="submit"
           className={`text-[#D8EB55] absolute right-2.5 bottom-2.5 font-medium rounded-lg text-sm px-4 py-2`}
         >
-          <Image className="w-full h-6" src={SongImage} width={width} height={width} alt="Song Image" />
+          <Image className="sm:w-full sm:h-6 h-4 w-full" src={SongImage} width={width} height={width} alt="Song Image" />
         </button>
       </div>
     </form>

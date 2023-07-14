@@ -1,5 +1,6 @@
 import React from "react";
 import { Dashboard, Content, Sale, Licensed, Setting, Logout } from "@/svgicon";
+
 const element = [
   {
     name: "dashboard",
@@ -22,20 +23,20 @@ const element = [
     icon: <Setting />,
   },
   {
-    name: " Logout",
+    name: "Logout",
     icon: <Logout />,
   },
 ];
 
 const SideBar = () => {
   return (
-    <div className=" ">
-      <ul className=" flex flex-col text-white_300">
+    <div className="overflow-x-auto">
+      <ul className="flex md:flex-col flex-row text-white_300 sm:gap-0 gap-4">
         {element.map((item, i) => {
           return (
             <li
               key={i}
-              className=" capitalize flex text-[16px] font-semibold items-center gap-4 mb-10"
+              className="capitalize flex text-[16px] font-semibold items-center gap-2 sm:mb-10"
             >
               <span>{item.icon}</span> {item.name}
             </li>

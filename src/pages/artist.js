@@ -5,7 +5,33 @@ import Typography from "@/components/typography";
 import Profile from "../../public/assests/DP.png";
 import SongImage from "../../public/assests/image 6.png";
 import Picture from "../../public/assests/image 12.png";
-import Cover from "../../public/assests/c.png"
+import Cover from "../../public/assests/c.png";
+import { songsdata } from "@/datalist/audio";
+import { getSession } from "next-auth/react"
+
+
+// import Wavesurfer from "react-wavesurfer";
+
+// import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js";
+// import RegionsPlugin from "wavesurfer.js/dist/plugin/wavesurfer.regions.min.js";
+import dynamic from "next/dynamic";
+
+const Wavesurfer = dynamic(() => import("react-wavesurfer"), {
+  ssr: false,
+});
+// const TimelinePlugin = dynamic(
+//   () => import("wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js"),
+//   {
+//     ssr: false,
+//   }
+// );
+// const RegionsPlugin = dynamic(
+//   () => import("wavesurfer.js/dist/plugin/wavesurfer.regions.min.js"),
+//   {
+//     ssr: false,
+//   }
+// );
+// import WaveSurfer from "wavesurfer.js";
 
 import {
   MdShuffle,
@@ -40,6 +66,8 @@ import {
 
 import Slider from "@/components/slider";
 import { classNames } from "@/helper/classNames";
+import SimilarTrack from "@/components/artist/SimilarTrack";
+import Songs from "@/components/common/Songs";
 const playlist = [
   {
     title: "Drake Type Beats",
@@ -212,10 +240,10 @@ const Artist = () => {
 
   return (
     <div>
-      <div className=" px-5 container mx-auto w-full pt-6  sm:pt-28 ">
+      <div className=" px-5 mx-auto w-full pt-6  sm:pt-28 ">
         <div className=" h-[185px]  sm:h-[300px]   w-full pt-[94px]  sm:pt-48  bg-gradient-to-r from-purple-600 to-blue-600">
-          <div className="  w-full  ">
-            <div className=" flex  items-center justify-center  sm:flex-row  sm:justify-between pl-3">
+          <div className="w-full">
+            <div className=" flex  items-center justify-center  lg:flex-row  sm:justify-between pl-3">
               <div className="  flex flex-col sm:flex-row sm:gap-10 ">
                 <div className=" flex justify-center   sm:justify-start">
                   <div className="  bg-black rounded-full sm:ml-0  h-[145px] w-[145px] sm:h-[250px] sm:w-[250px]">
@@ -228,8 +256,8 @@ const Artist = () => {
                     />
                   </div>
                 </div>
-                <div className="text-white_300   sm:mt-[8rem]  ">
-                  <div className="flex items-center  justify-center  sm:justify-start sm:flex-none">
+                <div className="text-white_300 sm:mt-[8rem]  ">
+                  <div className="flex items-center justify-center sm:justify-start sm:flex-none">
                     <div>
                       <Typography
                         variant={"h1"}
@@ -329,7 +357,7 @@ const Artist = () => {
               </Button>
             </div>
             <div className=" mt-20">
-              <div className=" flex justify-between">
+              <div className="flex flex-wrap justify-between">
                 <Typography
                   variant={"h1"}
                   className=" text-white_300 font-bold "
@@ -350,234 +378,13 @@ const Artist = () => {
         </div>
 
         <div className="  mt-[62rem] sm:mt-[50rem] ">
-          <div className=" flex justify-between ktem-center sm:hidden">
-            <div>
-              <MdTune className=" text-white_300 text-2xl" />
-            </div>
-            <div>
-              <span className="text-[15px] font-light  text-white_100">
-                Sort by:
-              </span>
-            </div>
-          </div>
-          <div className="  mt-20 text-white_300 px-2 sm:px-8   flex justify-between items-center">
-            <div className="flex  items-center justify-between gap-4 sm:gap-10">
-              <div className="text-[18px] hidden sm:block font-semibold">1</div>
-              <div className=" w-[50px] h-[50px] rounded-[4px]">
-                <Image
-                  src={Picture}
-                  className=" object-cover w-full h-full"
-                  alt="pic"
-                />
-              </div>
-              <div>
-                <Typography
-                  varient={"h4"}
-                  className=" font-bold smtext-base leading-[21px]"
-                >
-                  Pride Is A Devil
-                </Typography>
-                <div className=" flex items-center gap-3">
-                  <span className=" font-light text-[#text-whit_100]">
-                    J Cole
-                  </span>{" "}
-                  <span className=" w-2 h-2">
-                    <NewRealse />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="block sm:hidden">
-              <MdMoreVert className=" text-xl text-white_300" />
-            </div>
-            <div className=" hidden  sm:flex gap-4 items-center">
-              <div>
-                <ul className=" flex  gap-4 font-light text-[#text-whit_100]">
-                  <li>Hip Hop</li>
-                  <li>94 BPM</li>
-                  <li>F#m</li>
-                </ul>
-              </div>
-
-              <div className="hidden sm:block">
-                <ul className=" flex items-center  gap-5">
-                  <li>
-                    <Download />
-                  </li>
-                  <li>
-                    <FavoriteSvg />
-                  </li>
-                  <li>
-                    <button className="  px-3 py-2 flex  items-center gap-4 rounded-[6px] bg-[#272727]">
-                      <div>
-                        {" "}
-                        <ShoppingBag />
-                      </div>
-                      <div className=" flex items-center">
-                        <Currency /> 1999
-                      </div>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className=" mt-12 text-white_300 px-2 sm:px-8 flex justify-between items-center">
-            <div className="flex items-center  gap-4  sm:gap-10">
-              <div className="text-[18px] hidden sm:block font-semibold">2</div>
-              <div className=" w-[50px] h-[50px] rounded-[4px]">
-                <Image
-                  src={Picture}
-                  className=" object-cover w-full h-full"
-                  alt=""
-                />
-              </div>
-              <div>
-                <h4 className=" font-bold text-base leading-[21px]">
-                  Pride Is A Devil
-                </h4>
-                <div className=" flex items-center gap-3">
-                  <span className=" font-light text-[#text-whit_100]">
-                    J Cole
-                  </span>{" "}
-                  <span className=" w-2 h-2">
-                    <NewRealse />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="block sm:hidden">
-              <MdMoreVert className=" text-xl text-white_300" />
-            </div>
-            <div className=" hidden sm:flex gap-4 items-center">
-              <div>
-                <ul className=" flex gap-4 font-light text-[#text-whit_100]">
-                  <li>Hip Hop</li>
-                  <li>94 BPM</li>
-                  <li>F#m</li>
-                </ul>
-              </div>
-              <div>
-                <ul className=" flex items-center  gap-5">
-                  <li>
-                    <Download />
-                  </li>
-                  <li>
-                    <FavoriteSvg />
-                  </li>
-                  <li>
-                    <button className="  px-3 py-2 flex  items-center gap-4 rounded-[6px] bg-[#272727]">
-                      <div>
-                        {" "}
-                        <ShoppingBag />
-                      </div>
-                      <div className=" flex items-center">
-                        <Currency /> 1999
-                      </div>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className=" mt-12   bg-black_100 py-4 sm:py-10 px-2 sm:px-8  rounded-[5px] text-white_300 flex justify-between items-center">
-            <div className="flex items-center gap-10">
-              <div className="  hidden sm:block">
-                <PlaySvg />
-              </div>
-              <div className=" w-[50px] h-[50px] rounded-[4px]">
-                <Image
-                  src={Picture}
-                  className=" object-cover w-full h-full"
-                  alt=""
-                />
-              </div>
-              <div>
-                <h4 className=" font-bold text-base leading-[21px]">
-                  Pride Is A Devil
-                </h4>
-                <div className=" flex items-center gap-3">
-                  <span className=" font-light text-[#text-whit_100]">
-                    J Cole
-                  </span>{" "}
-                  <span className=" w-2 h-2">
-                    <NewRealse />
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="block sm:hidden">
-              <MdMoreVert className=" text-xl text-white_300" />
-            </div>
-            <div className=" hidden sm:flex gap-4 items-center">
-              <div>
-                <ul className=" flex gap-4 font-light text-[#text-whit_100]">
-                  <li>Hip Hop</li>
-                  <li>94 BPM</li>
-                  <li>F#m</li>
-                </ul>
-              </div>
-              <div>
-                <ul className=" hidden sm:flex items-center  gap-5">
-                  <li>
-                    <Download />
-                  </li>
-                  <li>
-                    <FavoriteSvg />
-                  </li>
-                  <li>
-                    <button className="  px-3 py-2 flex  items-center gap-4 rounded-[6px] bg-[#272727]">
-                      <div>
-                        {" "}
-                        <ShoppingBag />
-                      </div>
-                      <div className=" flex items-center">
-                        <Currency /> 1999
-                      </div>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+     <Songs/>
+         
         </div>
-        <div className=" mt-10">
-          <Typography variant={"h1"} className=" text-white_300   capitalize">
-            similar Tracks
-          </Typography>
-          <div className=" mt-6">
-            <div className=" grid  sm:grid-cols-6 gap-10">
-              {smililarTrack.map((track, i) => {
-                return (
-                  <div className="w-full h-[280px]" key={i}>
-                    <div className="  bg-slate-950 rounded-tl-[5px] rounded-tr-[5px] overflow-hidden  w-full h-[208px]">
-                      <Image
-                        src={track.image}
-                        height={200}
-                        width={200}
-                        className=" object-cover w-full h-full"
-                        alt="track"
-                      />
-                    </div>
-                    <div className="  flex justify-between items-center  text-white_300  rounded-bl-[5px] px-2 py-3 rounded-br-[5px] bg-[#2F2F2F]">
-                      <div>
-                        <h4 className=" font-bold">{track.title}</h4>
-                        <span className=" font-light">Alt Kid</span>
-                      </div>
-                      <div>
-                        <More_vertSvg />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+      <SimilarTrack/>
       </div>
 
-      <div className=" px-20 hidden    mt-10  sm:flex  justify-between items-center bg-black_100 py-3">
+      <div className=" px-20 hidden    mt-10  lg:flex  justify-between items-center bg-black_100 py-3">
         <div className=" flex justify-between items-center gap-10">
           <audio
             ref={audioRef}
@@ -702,19 +509,19 @@ const Artist = () => {
 
 export default Artist;
 
-export async function getServerSideProps({ req }){
-  const session = await getSession({ req })
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
 
-  if(!session){
-      return {
-          redirect : {
-              destination : "/login",
-              premanent: false
-          }
-      }
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        premanent: false,
+      },
+    };
   }
   // authorize user return session
   return {
-      props: { session }
-  }
+    props: { session },
+  };
 }

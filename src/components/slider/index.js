@@ -37,7 +37,7 @@ export default function Slider({ playlist }) {
                   src={song.image}
                   height={200}
                   width={200}
-                  className=" w-full h-full object-cover"
+                  className="w-full h-full object-cover"
                   alt="song"
                 />
                 {i === 0 && (
@@ -57,51 +57,6 @@ export default function Slider({ playlist }) {
           );
         })}
 
-        {/* <div className=" h-[260px] w-[259px]">
-          {" "}
-          <Image
-            src={SongImage}
-            height={200}
-            width={200}
-            className=" w-full h-full object-cover"
-          />
-        </div>
-        <div className=" h-[260px] w-[259px]">
-          {" "}
-          <Image
-            src={SongImage}
-            height={200}
-            width={200}
-            className=" w-full h-full object-cover"
-          />
-        </div>
-        <div className=" h-[260px] w-[259px]">
-          {" "}
-          <Image
-            src={SongImage}
-            height={200}
-            width={200}
-            className=" w-full h-full object-cover"
-          />
-        </div>
-        <div className=" h-[260px] w-[259px]">
-          {" "}
-          <Image
-            src={SongImage}
-            height={200}
-            width={200}
-            className=" w-full h-full object-cover"
-          />
-        </div>
-        <div className=" h-[260px] w-[259px]">
-          {" "}
-          <Image
-            src={SongImage}
-            height={200}
-            width={200}
-            className=" w-full h-full object-cover"
-          />
-        </div> */}
       </Carousel>
     </>
   );

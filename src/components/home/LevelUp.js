@@ -11,8 +11,8 @@ const LevelUp = () => {
   return (
     <>
      <section className="text-gray-600 body-font overflow-hidden">
-      <div className="container  py-24 mx-auto">
-        <div className="px-10 mx-auto flex flex-wrap">
+      <div className="container py-24 mx-auto">
+        <div className="sm:px-10 px-4 mx-auto flex flex-wrap">
          
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 flex flex-col justify-center items-start gap-6">
             <div className="leading-[55px] text-start">
@@ -20,7 +20,7 @@ const LevelUp = () => {
               <Heading text2="LOWFIED"  fontWeight="font-semibold"/>
             </div>
 
-            <div className="">
+            <div className="sm:w-full w-11/12">
               <Typography
                 variant="h2"
                 className="mb-8 text-lg font-normal text-start text-stone-300 "
@@ -35,11 +35,12 @@ const LevelUp = () => {
               >
                 Join our community and never miss a beat.
               </Typography>
+       
             </div>
-            <div className="">
+            <div className="sm:mx-0  mb-10">
               <Button
                 className={
-                  "ml-6 italic rounded-full  font-semibold text-[20px]  sm:text-[24px] px-8  sm:px-12  py-1 sm:py-3"
+                  " italic rounded-full  font-semibold text-[20px]  sm:text-[24px] px-8  sm:px-12  py-3 sm:py-3"
                 }
               >
                 START SELLING
@@ -48,7 +49,7 @@ const LevelUp = () => {
           </div>
           <Image
             alt="ecommerce"
-            className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+            className="lg:w-1/2 w-full lg:h-auto h-full object-cover object-center rounded"
             src={levelup}
           />
         </div>
@@ -57,10 +58,10 @@ const LevelUp = () => {
     {/* level up */}
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container  mx-auto">
-        <div className="px-10 mx-auto flex flex-wrap">
+        <div className="sm:px-10 px-4 mx-auto flex flex-wrap">
           <Image
             alt="ecommerce"
-            className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+            className="lg:w-1/2 w-full lg:h-auto h-full object-cover object-center rounded"
             src={onestop}
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 flex flex-col justify-center items-start gap-6">
@@ -85,10 +86,10 @@ const LevelUp = () => {
                 Join our community and never miss a beat.
               </Typography>
             </div>
-            <div className="">
+            <div className="sm:mx-0 ">
               <Button
                 className={
-                  "ml-6 italic rounded-full  font-semibold text-[20px]  sm:text-[24px] px-8  sm:px-12  py-1 sm:py-3"
+                  "italic rounded-full  font-semibold text-[20px]  sm:text-[24px] px-8  sm:px-12  py-3 sm:py-3"
                 }
               >
                 EXPLORE
