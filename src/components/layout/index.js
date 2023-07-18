@@ -12,7 +12,7 @@ const LayOut = ({ children }) => {
           </Typography>
           <div className=" text-[14px] text-white_100 mt-10">Seller Panel</div>
         </div>
-        <div className=" px-12 mt-10">
+        <div className="md:px-12 px-4 mt-10">
           <SideBar />
         </div>
       </div>

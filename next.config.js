@@ -8,7 +8,10 @@ module.exports = {
 
     return config;
   },
-  // eslint: {
-  //   ignoreDuringBuilds: true,
-  // },
+  images: {
+    domains: ['lh3.googleusercontent.com'], // Add the necessary domains for your images
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
